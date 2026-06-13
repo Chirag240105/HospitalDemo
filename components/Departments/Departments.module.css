@@ -76,6 +76,8 @@
     border-color 0.25s ease;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card:hover,

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Heart, Bone, Baby, Brain, Stethoscope, Smile, Eye, Activity } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -9,17 +10,18 @@ interface Dept {
   name:  string;
   desc:  string;
   color: string;
+  slug:  string;
 }
 
 const DEPARTMENTS: Dept[] = [
-  { icon: Heart,       name: "Cardiology",    desc: "Advanced heart care & cardiac surgery with state-of-the-art catheterization labs.",       color: "#FF6B6B" },
-  { icon: Bone,        name: "Orthopedics",   desc: "Joint replacement, sports injuries & spinal surgery by India's top orthopedic surgeons.", color: "#00B4A6" },
-  { icon: Baby,        name: "Gynecology",    desc: "Comprehensive women's health — from routine checkups to high-risk maternity care.",        color: "#FF8CC8" },
-  { icon: Brain,       name: "Neurology",     desc: "Diagnosis & treatment of brain, spine, and peripheral nerve disorders.",                   color: "#A78BFA" },
-  { icon: Stethoscope, name: "Pediatrics",    desc: "Gentle, specialized healthcare for newborns, children and adolescents.",                  color: "#FCD34D" },
-  { icon: Smile,       name: "Dermatology",   desc: "Skin, hair & nail disorders plus advanced cosmetic dermatology treatments.",              color: "#34D399" },
-  { icon: Eye,         name: "Ophthalmology", desc: "Full-spectrum eye care including cataract surgery, LASIK & retinal treatments.",          color: "#60A5FA" },
-  { icon: Activity,    name: "Oncology",      desc: "Multidisciplinary cancer care: surgery, chemotherapy, radiation & immunotherapy.",        color: "#F97316" },
+  { icon: Heart,       name: "Cardiology",    slug: "cardiology",        desc: "Advanced heart care & cardiac surgery with state-of-the-art catheterization labs.",       color: "#FF6B6B" },
+  { icon: Bone,        name: "Orthopedics",   slug: "orthopedics",       desc: "Joint replacement, sports injuries & spinal surgery by India's top orthopedic surgeons.", color: "#00B4A6" },
+  { icon: Baby,        name: "Gynecology",    slug: "gynecology",        desc: "Comprehensive women's health — from routine checkups to high-risk maternity care.",        color: "#FF8CC8" },
+  { icon: Brain,       name: "Neurology",     slug: "internal-medicine", desc: "Diagnosis & treatment of brain, spine, and peripheral nerve disorders.",                   color: "#A78BFA" },
+  { icon: Stethoscope, name: "Pediatrics",    slug: "pediatrics",        desc: "Gentle, specialized healthcare for newborns, children and adolescents.",                  color: "#FCD34D" },
+  { icon: Smile,       name: "Dermatology",   slug: "surgery",           desc: "Skin, hair & nail disorders plus advanced cosmetic dermatology treatments.",              color: "#34D399" },
+  { icon: Eye,         name: "Ophthalmology", slug: "pulmonology",       desc: "Full-spectrum eye care including cataract surgery, LASIK & retinal treatments.",          color: "#60A5FA" },
+  { icon: Activity,    name: "Oncology",      slug: "emergency",         desc: "Multidisciplinary cancer care: surgery, chemotherapy, radiation & immunotherapy.",        color: "#F97316" },
 ];
 
 const containerVariants = {
@@ -66,24 +68,26 @@ export default function Departments() {
             return (
               <motion.div
                 key={dept.name}
-                className={s.card}
                 variants={itemVariants}
-                tabIndex={0}
-                role="article"
-                aria-label={dept.name}
               >
-                <div
-                  className={s.iconWrap}
-                  style={{ backgroundColor: `${dept.color}1A` }}
-                  aria-hidden="true"
+                <Link
+                  href={`/specialties/${dept.slug}`}
+                  className={s.card}
+                  aria-label={`Learn more about ${dept.name}`}
                 >
-                  <Icon size={24} color={dept.color} strokeWidth={1.8} />
-                </div>
-                <h3 className={s.cardTitle}>{dept.name}</h3>
-                <p className={s.cardDesc}>{dept.desc}</p>
-                <span className={s.cardLink} aria-hidden="true">
-                  Learn more →
-                </span>
+                  <div
+                    className={s.iconWrap}
+                    style={{ backgroundColor: `${dept.color}1A` }}
+                    aria-hidden="true"
+                  >
+                    <Icon size={24} color={dept.color} strokeWidth={1.8} />
+                  </div>
+                  <h3 className={s.cardTitle}>{dept.name}</h3>
+                  <p className={s.cardDesc}>{dept.desc}</p>
+                  <span className={s.cardLink} aria-hidden="true">
+                    Learn more →
+                  </span>
+                </Link>
               </motion.div>
             );
           })}
