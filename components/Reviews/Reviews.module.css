@@ -1,0 +1,135 @@
+/* ─── Reviews / Testimonials ─────────────────────────────── */
+.section {
+  background-color: var(--white);
+  padding-block: var(--sp-96);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--sp-64);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: var(--sp-12);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ─── Carousel ───────────────────────────────────────────── */
+.carouselWrap {
+  position: relative;
+}
+
+.slide {
+  background-color: var(--grey-bg);
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 56px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-16);
+}
+
+.quoteIcon {
+  color: var(--teal);
+  margin-bottom: var(--sp-8);
+}
+
+.reviewText {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.75;
+  color: var(--navy);
+  max-width: 640px;
+  font-style: italic;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.reviewerName {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: var(--sp-4);
+}
+
+.reviewerMeta {
+  font-size: var(--fs-small);
+  color: var(--grey-text);
+}
+
+/* ─── Controls ───────────────────────────────────────────── */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-16);
+  margin-top: var(--sp-32);
+}
+
+.arrowBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.arrowBtn:hover {
+  border-color: var(--teal);
+  background-color: rgba(0, 180, 166, 0.06);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.dot {
+  height: 8px;
+  border-radius: 100px;
+  background-color: var(--border);
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.dotActive {
+  background-color: var(--teal);
+  width: 24px;
+}
+
+.dotInactive {
+  width: 8px;
+}

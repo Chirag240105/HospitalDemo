@@ -1,0 +1,240 @@
+/* ─── Services Page ──────────────────────────────────────── */
+.page {
+  background-color: var(--white);
+}
+
+/* ─── Category section ───────────────────────────────────── */
+.category {
+  padding-block: var(--sp-96);
+  border-bottom: 1px solid var(--border);
+}
+
+.category:nth-child(even) {
+  background-color: var(--grey-bg);
+}
+
+.categoryInner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+}
+
+/* Category header */
+.categoryHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-24);
+  margin-bottom: var(--sp-48);
+}
+
+.categoryIconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.categoryHeaderText {}
+
+.categoryEyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: var(--sp-8);
+}
+
+.categoryTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: var(--sp-12);
+  letter-spacing: -0.02em;
+}
+
+.categoryDesc {
+  font-size: var(--fs-body);
+  color: var(--grey-text);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* Service cards grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-16);
+}
+
+@media (min-width: 480px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─── Service card ───────────────────────────────────────── */
+.card {
+  background-color: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+
+.category:nth-child(even) .card {
+  background-color: var(--white);
+}
+
+.card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 8px 32px rgba(10, 31, 68, 0.08);
+  transform: translateY(-4px);
+}
+
+.cardIconWrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: var(--fs-small);
+  color: var(--grey-text);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-top: var(--sp-4);
+  align-self: flex-start;
+}
+
+/* ─── CTA strip ──────────────────────────────────────────── */
+.ctaStrip {
+  background-color: var(--navy);
+  padding-block: var(--sp-64);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaStripOrb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  top: -40%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--teal) 0%, transparent 68%);
+  opacity: 0.1;
+}
+
+.ctaStripInner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-24);
+}
+
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.ctaAccent {
+  color: var(--teal);
+}
+
+.ctaSubtitle {
+  font-size: var(--fs-body);
+  color: rgba(255,255,255,0.55);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.ctaBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+  justify-content: center;
+  margin-top: var(--sp-8);
+}
+
+.ctaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: 14px 32px;
+  border-radius: 100px;
+  background-color: var(--teal);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ctaBtnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,180,166,0.45);
+}
+
+.ctaBtnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.ctaBtnOutline:hover {
+  border-color: var(--teal);
+  background-color: rgba(0,180,166,0.08);
+}

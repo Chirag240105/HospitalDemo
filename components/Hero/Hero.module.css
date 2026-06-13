@@ -1,0 +1,327 @@
+/* ─── Hero ───────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--navy);
+  padding-top: 72px; /* navbar height */
+}
+
+/* Grid pattern */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(var(--teal) 1px, transparent 1px),
+    linear-gradient(90deg, var(--teal) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Background orbs */
+.orbOne {
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: clamp(300px, 50vw, 700px);
+  height: clamp(300px, 50vw, 700px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--teal) 0%, transparent 68%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.orbTwo {
+  position: absolute;
+  bottom: -15%;
+  left: -6%;
+  width: clamp(200px, 30vw, 480px);
+  height: clamp(200px, 30vw, 480px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--teal-light) 0%, transparent 68%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+  padding-block: var(--sp-64) var(--sp-96);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-48);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 60% 40%;
+    padding-block: var(--sp-96) var(--sp-64);
+    gap: var(--sp-32);
+  }
+}
+
+/* ─── Text side ──────────────────────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+  .textCol {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-24);
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--teal);
+  flex-shrink: 0;
+}
+
+.eyebrowText {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* Headline */
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: var(--sp-12);
+  letter-spacing: -0.02em;
+}
+
+.headlineTeal {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated underline */
+.underline {
+  width: 96px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  border-radius: 2px;
+  margin-bottom: var(--sp-24);
+  transform-origin: left center;
+}
+
+@media (max-width: 767px) {
+  .underline {
+    margin-inline: auto;
+  }
+}
+
+/* Sub text */
+.subtext {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: var(--sp-32);
+}
+
+/* CTA group */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-16);
+  margin-bottom: var(--sp-48);
+}
+
+@media (max-width: 767px) {
+  .ctas {
+    justify-content: center;
+  }
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: 14px 32px;
+  border-radius: 100px;
+  background-color: var(--teal);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 180, 166, 0.45);
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.btnOutline:hover {
+  border-color: var(--teal);
+  background-color: rgba(0, 180, 166, 0.08);
+}
+
+/* Trust badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-24);
+}
+
+@media (max-width: 767px) {
+  .badges {
+    justify-content: center;
+  }
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+}
+
+.badgeIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(0, 180, 166, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badgeText {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+/* ─── Spline / visual side ───────────────────────────────── */
+.visualCol {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .visualCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.splineWrap {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  position: relative;
+}
+
+.splineFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* CSS fallback orbs */
+.fallbackOrbA {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,180,166,0.6) 0%, transparent 70%);
+  animation: orbFloat 6s ease-in-out infinite;
+}
+
+.fallbackOrbB {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,196,0.4) 0%, transparent 70%);
+  animation: orbFloat 4s ease-in-out infinite reverse;
+  top: 20%;
+  right: 15%;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.05); }
+}
+
+/* ─── Scroll indicator ───────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
+  z-index: 2;
+}
+
+.scrollLabel {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--teal), transparent);
+  animation: scrollPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50%       { opacity: 0.4; transform: scaleY(0.6); }
+}

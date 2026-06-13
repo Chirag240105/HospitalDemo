@@ -1,0 +1,238 @@
+/* ─── Contact / Appointment ──────────────────────────────── */
+.section {
+  background-color: var(--grey-bg);
+  padding-block: var(--sp-96);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--sp-64);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: var(--sp-12);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ─── Two-column layout ──────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-48);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-64);
+    align-items: start;
+  }
+}
+
+/* ─── Info column ────────────────────────────────────────── */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-32);
+}
+
+.infoItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-16);
+}
+
+.infoIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 180, 166, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.infoValue {
+  font-size: var(--fs-body);
+  color: var(--grey-text);
+  line-height: 1.6;
+}
+
+/* Map */
+.mapWrap {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 260px;
+  box-shadow: 0 4px 24px rgba(10, 31, 68, 0.08);
+}
+
+.mapWrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ─── Form card ──────────────────────────────────────────── */
+.formCard {
+  background-color: var(--white);
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 48px);
+  box-shadow: 0 4px 40px rgba(10, 31, 68, 0.07);
+}
+
+.formTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: var(--sp-24);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-16);
+}
+
+@media (min-width: 480px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--navy);
+  background: var(--white);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--grey-text);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0, 180, 166, 0.12);
+}
+
+.textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--grey-text);
+  pointer-events: none;
+}
+
+/* Submit button */
+.submitBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  padding: 15px var(--sp-32);
+  border-radius: 12px;
+  background-color: var(--teal);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  margin-top: var(--sp-8);
+}
+
+.submitBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.formNote {
+  font-size: var(--fs-small);
+  color: var(--grey-text);
+  text-align: center;
+  line-height: 1.6;
+}

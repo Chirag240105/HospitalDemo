@@ -1,0 +1,227 @@
+/* ─── Footer ─────────────────────────────────────────────── */
+.footer {
+  background-color: var(--navy-deep);
+  color: var(--white);
+}
+
+/* Emergency bar */
+.emergencyBar {
+  background-color: var(--emergency);
+  padding-block: var(--sp-12);
+}
+
+.emergencyInner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .emergencyInner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.emergencyText {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.emergencyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  transition: opacity 0.25s ease;
+}
+
+.emergencyLink:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+/* Main content */
+.main {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--sp-24);
+  padding-block: var(--sp-64);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-48);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--sp-32);
+  }
+}
+
+/* Brand column */
+.brand {}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-16);
+}
+
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.logoName {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.logoTagline {
+  font-size: var(--fs-small);
+  color: rgba(255,255,255,0.35);
+  line-height: 1;
+}
+
+.brandDesc {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.8;
+  margin-bottom: var(--sp-24);
+  max-width: 280px;
+}
+
+.socials {
+  display: flex;
+  gap: var(--sp-12);
+}
+
+.socialBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.socialBtn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.socialWa  { background-color: var(--whatsapp); }
+.socialPh  { background-color: rgba(255,255,255,0.08); }
+.socialMail { background-color: rgba(255,255,255,0.08); }
+
+/* Link columns */
+.col {}
+
+.colTitle {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: var(--sp-16);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-12);
+}
+
+.footerLink {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.25s ease;
+}
+
+.footerLink:hover {
+  color: var(--white);
+}
+
+/* Contact items */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-16);
+}
+
+.contactText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+/* Bottom bar */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--sp-32);
+  margin-top: var(--sp-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .bottomBar {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.copyright {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.credit {
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.creditAccent {
+  color: var(--teal);
+}
