@@ -1,135 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&family=Roboto+Mono:wght@500;700&display=swap");
+@import "tailwindcss";
 
-/* ─── Design Tokens ─────────────────────────────────────── */
 :root {
-  --navy:        #0A1F44;
-  --navy-deep:   #060F22;
-  --teal:        #00B4A6;
-  --teal-light:  #00D4C4;
-  --white:       #FFFFFF;
-  --grey-bg:     #F7F8FA;
-  --grey-text:   #6B7280;
-  --border:      #E5E7EB;
-  --emergency:   #DC2626;
-  --whatsapp:    #25D366;
-
-  /* Typography scale */
-  --fs-hero:  clamp(44px, 7vw, 88px);
-  --fs-h2:    clamp(30px, 4vw, 52px);
-  --fs-h3:    18px;
-  --fs-body:  15px;
-  --fs-small: 13px;
-
-  /* Spacing */
-  --sp-4:  4px;
-  --sp-8:  8px;
-  --sp-12: 12px;
-  --sp-16: 16px;
-  --sp-24: 24px;
-  --sp-32: 32px;
-  --sp-48: 48px;
-  --sp-64: 64px;
-  --sp-96: 96px;
-
-  /* Max width */
-  --max-w: 1280px;
+  --primary: #0a2463;
+  --accent: #3dd6f5;
+  --warm: #e8f4fd;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --danger: #dc2626;
+  --background: #f7fbff;
+  --foreground: var(--text);
+  --font-display: "Playfair Display";
+  --font-mono: "Roboto Mono";
 }
 
-/* ─── Reset ─────────────────────────────────────────────── */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: auto; /* Lenis handles this */
-  font-size: 16px;
-}
-
-/* Lenis smooth scroll */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+  scroll-padding-top: 104px;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: var(--fs-body);
-  background-color: var(--white);
-  color: var(--navy);
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Arial, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img,
-video {
-  display: block;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
   max-width: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+::selection {
+  background: var(--accent);
+  color: #ffffff;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-/* ─── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--grey-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--teal);
-  border-radius: 3px;
-}
-
-/* ─── Utility: container ─────────────────────────────────── */
-.container {
-  width: 100%;
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding-inline: var(--sp-24);
-}
-
-/* ─── Focus visible ──────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 3px solid color-mix(in srgb, var(--accent), white 15%);
   outline-offset: 3px;
 }
 
-:focus:not(:focus-visible) {
-  outline: none;
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.container-xl {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+.nav-link {
+  position: relative;
+  padding-block: 0.35rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: left 180ms ease, right 180ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  left: 0;
+  right: 0;
+}
+
+.shimmer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: "";
+  position: absolute;
+  inset-block: -30%;
+  left: -70%;
+  width: 45%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+  transition: left 550ms ease;
+  z-index: -1;
+}
+
+.shimmer:hover::before,
+.shimmer:focus-visible::before {
+  left: 125%;
+}
+
+.perspective-card {
+  perspective: 900px;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 520ms ease;
+}
+
+.group:hover .flip-card,
+.group:focus-within .flip-card {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

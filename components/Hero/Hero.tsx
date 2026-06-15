@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
@@ -106,12 +107,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.1 }}
           >
-            <a href="/contact" className={s.btnPrimary}>
+            <Link href="/contact" className={s.btnPrimary}>
               Book Appointment <ArrowRight size={17} aria-hidden="true" />
-            </a>
-            <a href="/departments" className={s.btnOutline}>
+            </Link>
+            <Link href="/departments" className={s.btnOutline}>
               Explore Departments
-            </a>
+            </Link>
           </motion.div>
 
           {/* Trust badges */}

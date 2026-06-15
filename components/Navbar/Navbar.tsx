@@ -22,9 +22,10 @@ export default function Navbar() {
 
   // On non-home pages the navbar is always solid
   const isHome = pathname === "/";
+  const solid = !isHome || scrolled;
 
   useEffect(() => {
-    if (!isHome) { setScrolled(true); return; }
+    if (!isHome) return;
     const handler = () => setScrolled(window.scrollY > 60);
     handler(); // run once on mount
     window.addEventListener("scroll", handler, { passive: true });
@@ -36,7 +37,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const navClass = `${s.nav} ${scrolled ? s.navScrolled : s.navTransparent}`;
+  const navClass = `${s.nav} ${solid ? s.navScrolled : s.navTransparent}`;
 
   return (
     <>
@@ -52,10 +53,10 @@ export default function Navbar() {
           <Link href="/" className={s.logo} aria-label="Apex Hospital – Home">
             <div className={s.logoIcon} aria-hidden="true">A</div>
             <div>
-              <div className={`${s.logoName} ${scrolled ? s.logoNameDark : s.logoNameLight}`}>
+              <div className={`${s.logoName} ${solid ? s.logoNameDark : s.logoNameLight}`}>
                 Apex Hospital
               </div>
-              <div className={`${s.logoTagline} ${scrolled ? s.logoTagDark : s.logoTagLight}`}>
+              <div className={`${s.logoTagline} ${solid ? s.logoTagDark : s.logoTagLight}`}>
                 Multispecialty Care
               </div>
             </div>
@@ -71,7 +72,7 @@ export default function Navbar() {
                   href={href}
                   className={[
                     s.link,
-                    scrolled ? s.linkDark : s.linkLight,
+                    solid ? s.linkDark : s.linkLight,
                     isActive ? s.linkActive : "",
                   ].join(" ")}
                   aria-current={isActive ? "page" : undefined}
@@ -101,7 +102,7 @@ export default function Navbar() {
             aria-label="Open menu"
             aria-expanded={open}
           >
-            <Menu size={22} color={scrolled ? "var(--navy)" : "white"} />
+            <Menu size={22} color={solid ? "var(--navy)" : "white"} />
           </button>
         </div>
       </motion.header>
